@@ -11,9 +11,7 @@ app.get("/", async (req, res) => {
 
 const getCurrentDateHash = async () => {
   try {
-    const data = await fs.readFile("/usr/src/app/files/datehash.txt", { encoding: "utf8" });
-    console.log("Data (dateHashStr):", data);
-    return data;
+    return await fs.readFile("/usr/src/app/files/datehash.txt", { encoding: "utf8" });
   } catch (err) {
     console.error("ERROR:", err);
     return "-";
