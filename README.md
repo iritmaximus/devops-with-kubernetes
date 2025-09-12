@@ -8,6 +8,7 @@
 * [1.3](https://github.com/iritmaximus/devops-with-kubernetes/tree/1.3.0)
 * [1.4](https://github.com/iritmaximus/devops-with-kubernetes/tree/1.4.0)
 * [1.5](https://github.com/iritmaximus/devops-with-kubernetes/tree/1.5.0)
+* [1.6](https://github.com/iritmaximus/devops-with-kubernetes/tree/1.6.0)
 
 ## Image tags
 `latest` points to the latest github release, `main` points to the main branch currently on github and 
@@ -51,4 +52,9 @@ kubectl apply -f ./log_output/manifests/deployment.yaml
 Deploy it to kubernetes with 
 ```bash
 kubectl apply -f ./todo/manifests/deployment.yaml
+```
+
+and enable service with
+```bash
+kubectl apply -f ./todo/manifests/service.yaml
 ```
