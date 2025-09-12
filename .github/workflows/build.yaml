@@ -20,7 +20,7 @@ jobs:
           images: ${{ vars.DOCKER_USERNAME }}/${{ vars.LOG_OUTPUT_IMAGE_NAME }}
           tags: |
             type=schedule
-            type=ref,event=branch,value=latest
+            type=ref,event=branch
             type=ref,event=tag
             type=ref,event=pr
 
