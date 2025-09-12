@@ -1,4 +1,4 @@
-import fs from "node:fs/promise"
+import fs from "node:fs/promises"
 import express from "express"
 
 const app = express();
