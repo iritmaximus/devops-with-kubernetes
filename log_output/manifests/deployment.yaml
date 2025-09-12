@@ -12,9 +12,20 @@ spec:
       labels:
         app: log-output
     spec:
+      volumes:
+      - name: shared-image
+        emptyDir: {}
       containers:
-        - name: log-output
-          image: iritmaximus/log-output-server@sha256:4d993959dbc3cab1e42f5572259626bd204207558cdc24e91b1808e6a2b769fe
-          env:
-          - name: PORT
-            value: "3002"
+      - name: log-output-server
+        image: iritmaximus/log-output-server@sha256:7a7ee3d5ccb5c6f0a936536b90993651113678fb295753136d2e6a5f221ac866
+        volumeMounts:
+        - name:
+          mountPath: /usr/src/app/files
+        env:
+        - name: PORT
+          value: "3002"
+      - name: log-output-file
+        image: iritmaximus/log-output-file@sha256:e3421bb36e29fcf6f4cb921aaa91c17730b7026f062a3d55f498e05aec0f2a65
+        volumeMounts:
+        - name:
+          mountPath: /usr/src/app/files

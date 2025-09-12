@@ -9,8 +9,6 @@ RUN npm ci
 
 COPY src /app
 
-RUN mkdir -p /usr/local
-
 FROM base AS server
 CMD [ "node", "server.js" ]
 

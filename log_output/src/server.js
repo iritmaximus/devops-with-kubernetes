@@ -8,7 +8,7 @@ app.get("/", (req, res) => {
 })
 
 const getCurrentDateHash = () => {
-  fs.readFile("/usr/local/datehash.txt", "utf8", (err, data) => {
+  fs.readFile("/usr/src/app/files/datehash.txt", "utf8", (err, data) => {
       if (err) {
           console.error("ERROR:", err);
           return "-";

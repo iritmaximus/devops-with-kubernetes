@@ -10,7 +10,7 @@ const generateHash = () => {
 const generateString = (date = DATE, hash = generateHash()) => {
     const date_hash_str = date.toISOString() + ": " + hash;
     console.log(date_hash_str);
-    fs.writeFile("/usr/local/datehash.txt", date_hash_str, err => {
+    fs.writeFile("/usr/src/app/files/datehash.txt", date_hash_str, err => {
         if (err) console.error("ERROR:", err);
     });
 }
