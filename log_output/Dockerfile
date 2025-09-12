@@ -1,6 +1,10 @@
 FROM node:22-alpine
 
-COPY src /app
 WORKDIR /app
+COPY package.json package-lock.json /app
+
+RUN npm ci
+
+COPY src /app
 
 CMD [ "node", "index.js" ]
