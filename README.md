@@ -10,6 +10,7 @@
 * [1.5](https://github.com/iritmaximus/devops-with-kubernetes/tree/1.5.0)
 * [1.6](https://github.com/iritmaximus/devops-with-kubernetes/tree/1.6.0)
 * [1.7](https://github.com/iritmaximus/devops-with-kubernetes/tree/1.7.0)
+* [1.8](https://github.com/iritmaximus/devops-with-kubernetes/tree/1.8.0)
 
 ## Image tags
 `latest` points to the latest github release, `main` points to the main branch currently on github and 
