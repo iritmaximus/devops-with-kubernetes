@@ -41,7 +41,7 @@ docker run -it todo
 #### Log output
 Deploy it to kubernetes with 
 ```bash
-kubectl create deployment --image=iritmaximus/log-output
+kubectl apply -f ./log_output/manifests/deployment.yaml
 ```
 
 #### Todo
