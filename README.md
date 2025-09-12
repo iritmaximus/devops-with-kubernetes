@@ -5,6 +5,7 @@
 ### Chapter 2
 * [1.1](https://github.com/iritmaximus/devops-with-kubernetes/tree/1.1.0)
 * [1.2](https://github.com/iritmaximus/devops-with-kubernetes/tree/1.2.0)
+* [1.3](https://github.com/iritmaximus/devops-with-kubernetes/tree/1.3.0)
 
 ## Image tags
 `latest` points to the latest github release, `main` points to the main branch currently on github and 
