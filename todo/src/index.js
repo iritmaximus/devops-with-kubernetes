@@ -7,6 +7,10 @@ app.get("/ping", (req, res) => {
     return res.send({ "message": "pong" });
 })
 
+app.get("/", (req, res) => {
+    return res.send("<p>Hello world!</p>");
+})
+
 const server = app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
