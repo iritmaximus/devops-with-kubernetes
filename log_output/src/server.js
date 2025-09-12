@@ -4,17 +4,21 @@ import express from "express"
 const app = express();
 
 app.get("/", (req, res) => {
-  return res.send({ "Current string": getCurrentDateHash() });
+  const dateHashStr = getCurrentDateHash();
+  console.log("Current string:", dateHashStr);
+  return res.send({ "Current string": dateHashStr });
 })
 
 const getCurrentDateHash = () => {
+  let dateHastStr = "";
   fs.readFile("/usr/src/app/files/datehash.txt", "utf8", (err, data) => {
-      if (err) {
-          console.error("ERROR:", err);
-          return "-";
-      }
-      return data;
-  })
+    if (err) {
+      console.error("ERROR:", err);
+      return "-";
+    }
+    dateHashStr = data;
+  });
+  return dateHashStr;
 }
 
 const PORT = process.env.PORT || 3000;
