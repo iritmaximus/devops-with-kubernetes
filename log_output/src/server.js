@@ -16,6 +16,7 @@ const getCurrentDateHash = () => {
       console.error("ERROR:", err);
       return "-";
     }
+    console.log("Data:", data);
     dateHashStr = data;
   });
   return dateHashStr;
