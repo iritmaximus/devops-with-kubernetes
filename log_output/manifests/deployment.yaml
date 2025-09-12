@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: log-output
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: log-output
+  template:
+    metadata:
+      labels:
+        app: log-output
+    spec:
+      containers:
+        - name: log-output
+          image: iritmaximus/log-output@sha256:0c65b498b9f662a3ef39b073eb7b1d77cf24d9bd97ffee499d237a3b9f5688c5
