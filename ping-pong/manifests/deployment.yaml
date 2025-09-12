@@ -12,9 +12,16 @@ spec:
       labels:
         app: ping-pong
     spec:
+      volumes:
+      - name: shared-image
+        persistentVolumeClaim:
+          claimName: image-claim
       containers:
       - name: todo
         image: iritmaximus/ping-pong@sha256:cac69c1c15dc1bec5a8ee4abb3bdd7f7058fb2dcbe6025722ef0909ecddb3441
+        volumeMounts:
+        - name: shared-image
+          mountPath: /usr/src/app/files
         env:
         - name: PORT
           value: "4000"

@@ -14,7 +14,8 @@ spec:
     spec:
       volumes:
       - name: shared-image
-        emptyDir: {}
+        persistentVolumeClaim:
+          claimName: image-claim
       containers:
       - name: log-output-server
         image: iritmaximus/log-output-server@sha256:1e9ee4fbccfa0deac4759e43fb07fe54a385b6304e33cbf706eeba5e15945350
