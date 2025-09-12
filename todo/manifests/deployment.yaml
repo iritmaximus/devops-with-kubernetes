@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: todo
-        image: iritmaximus/todo@sha256:1238622156035652fee0d987328dead0087056d1991af4479ae7ce8ae49d79bb
+        image: iritmaximus/todo@sha256:96b6035e5fcf83fe8048259cd1cdcb33c218d7c63e6c159b020bd182227c16c7
         env:
         - name: PORT
           value: "5000"
