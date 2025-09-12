@@ -21,7 +21,7 @@ docker run -it log-output
 ### Kubernetes
 Deploy it to kubernetes with 
 ```bash
-kubectl create deployment iritmaximus/log-output
+kubectl create deployment --image=iritmaximus/log-output
 ```
 
 ### Image tags
