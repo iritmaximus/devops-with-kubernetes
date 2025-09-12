@@ -12,7 +12,7 @@ COPY src /app
 RUN mkdir -p /usr/local
 
 FROM base AS server
-CMD [ "node", "index.js" ]
+CMD [ "node", "server.js" ]
 
 FROM base AS file
 CMD [ "node", "file.js" ]
