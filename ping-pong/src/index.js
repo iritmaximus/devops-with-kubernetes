@@ -6,13 +6,15 @@ const app = express();
 const PORT = process.env.PORT || 4004;
 
 const updatePPCounter = async () => {
-  let data = 0;
+  let data = -1;
   try {
     data = await fs.readFile("/usr/src/app/files/ppcounter.txt", { encoding: "utf8" });
     data = parseInt(data);
   } catch (err) {
-    console.error("ERROR:", err);
-    return -1;
+    if (data != -1)
+      console.error("ERROR:", err);
+    else
+      data = 0
   }
 
   console.log("PPCounter:", data);
