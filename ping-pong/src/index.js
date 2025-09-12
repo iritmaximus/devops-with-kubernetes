@@ -4,7 +4,6 @@ import express from "express"
 const app = express();
 
 const PORT = process.env.PORT || 4004;
-let ppCounter = 0;
 
 const updatePPCounter = async () => {
   let data = 0;
