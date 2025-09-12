@@ -1,4 +1,4 @@
-FROM node:22-alpine as base
+FROM node:22-alpine AS base
 
 ENV PORT 3001
 
@@ -11,8 +11,8 @@ COPY src /app
 
 RUN mkdir -p /usr/local
 
-FROM base as server
+FROM base AS server
 CMD [ "node", "index.js" ]
 
-FROM base as file
+FROM base AS file
 CMD [ "node", "file.js" ]
