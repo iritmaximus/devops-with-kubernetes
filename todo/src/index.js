@@ -10,3 +10,19 @@ app.get("/ping", (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+
+// Handle signals properly
+process.on('SIGTERM', () => {
+  console.log('SIGTERM signal received.');
+  server.close(() => {
+    console.log('Closed out remaining connections');
+  });
+});
+
+process.on('SIGINT', () => {
+  console.log('SIGINT signal received.');
+  server.close(() => {
+    console.log('Closed out remaining connections');
+  });
+});
