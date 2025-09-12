@@ -4,7 +4,7 @@ import express from "express"
 const app = express();
 
 app.get("/", (req, res) => {
-  return res.send({ "Current string": getCurrentDateHast() });
+  return res.send({ "Current string": getCurrentDateHash() });
 })
 
 const getCurrentDateHash = () => {
