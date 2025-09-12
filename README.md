@@ -9,6 +9,7 @@
 * [1.4](https://github.com/iritmaximus/devops-with-kubernetes/tree/1.4.0)
 * [1.5](https://github.com/iritmaximus/devops-with-kubernetes/tree/1.5.0)
 * [1.6](https://github.com/iritmaximus/devops-with-kubernetes/tree/1.6.0)
+* [1.7](https://github.com/iritmaximus/devops-with-kubernetes/tree/1.7.0)
 
 ## Image tags
 `latest` points to the latest github release, `main` points to the main branch currently on github and 
@@ -45,16 +46,11 @@ docker run -it todo
 #### Log output
 Deploy it to kubernetes with 
 ```bash
-kubectl apply -f ./log_output/manifests/deployment.yaml
+kubectl apply -f ./log_output/manifests
 ```
 
 #### Todo
 Deploy it to kubernetes with 
 ```bash
-kubectl apply -f ./todo/manifests/deployment.yaml
-```
-
-and enable service with
-```bash
-kubectl apply -f ./todo/manifests/service.yaml
+kubectl apply -f ./todo/manifests
 ```
