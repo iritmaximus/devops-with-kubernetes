@@ -1,11 +1,16 @@
 import express from "express"
 
 const app = express();
-const PORT = process.env.PORT || 5005;
 
+const PORT = process.env.PORT || 4004;
+let ppCounter = 0;
 
 app.get("/", (req, res) => {
-    return res.send("<p>Hello world!</p>");
+    return res.send({ "message": "Try /pingpong :)"});
+});
+
+app.get("/pingpong", (req, res) => {
+    return res.send({ "pong": ppCounter++ });
 });
 
 const server = app.listen(PORT, () => {
