@@ -6,12 +6,12 @@ on:
   push:
     branches:
       - main
-    paths:
-      - '.github/workflows/**'
-      - 'log_output/**'
-      - 'todo/**'
-      - '!log_output/manifests/**'
-      - '!todo/manifests/**'
+    paths-ignore:
+      - '.gitignore'
+      - 'README.md'
+      - 'ping-pong/manifests/**'
+      - 'log_output/manifests/**'
+      - 'todo/manifests/**'
 
 jobs:
   build_log_output:
