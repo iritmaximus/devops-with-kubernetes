@@ -6,22 +6,19 @@ const app = express();
 const PORT = process.env.PORT || 4004;
 
 const updatePPCounter = async () => {
-  let data = -1;
+  let data = 0;
   try {
     data = await fs.readFile("/usr/src/app/files/ppcounter.txt", { encoding: "utf8" });
     data = parseInt(data);
+    console.log("PPCounter:", data);
   } catch (err) {
-    if (data != -1)
-      console.error("ERROR:", err);
-    else
-      data = 0
+    console.error("ERROR:", err);
   }
-
-  console.log("PPCounter:", data);
 
   await fs.writeFile("/usr/src/app/files/datehash.txt", `{++data}`, err => {
     if (err) console.error("ERROR:", err);
   });
+  console.log("Counter now at:", data)
 
   return data
 }
