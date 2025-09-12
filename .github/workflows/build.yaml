@@ -18,11 +18,6 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ vars.DOCKER_USERNAME }}/${{ vars.LOG_OUTPUT_IMAGE_NAME }}
-          tags: |
-            type=schedule
-            type=ref,event=branch
-            type=ref,event=tag
-            type=ref,event=pr
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
