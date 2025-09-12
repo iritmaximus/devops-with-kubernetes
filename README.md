@@ -6,6 +6,10 @@
 * [1.1](https://github.com/iritmaximus/devops-with-kubernetes/tree/1.1.0)
 * [1.2](https://github.com/iritmaximus/devops-with-kubernetes/tree/1.2.0)
 
+## Image tags
+`latest` points to the latest github release, `main` points to the main branch currently on github and 
+`<SEMVER>` points to the corresponding github release.
+
 ## Building
 ### Docker
 #### Log output
@@ -33,7 +37,6 @@ docker run -it todo
 ```
 
 
-
 ### Kubernetes
 #### Log output
 Deploy it to kubernetes with 
@@ -46,7 +49,3 @@ Deploy it to kubernetes with
 ```bash
 kubectl create deployment --image=iritmaximus/todo
 ```
-
-### Image tags
-`latest` points to the latest github release, `main` points to the main branch currently on github and 
-`<SEMVER>` points to the corresponding github release.
