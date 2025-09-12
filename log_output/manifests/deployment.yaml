@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: log-output
-          image: iritmaximus/log-output@sha256:4d993959dbc3cab1e42f5572259626bd204207558cdc24e91b1808e6a2b769fe
+          image: iritmaximus/log-output-server@sha256:4d993959dbc3cab1e42f5572259626bd204207558cdc24e91b1808e6a2b769fe
           env:
           - name: PORT
             value: "3002"

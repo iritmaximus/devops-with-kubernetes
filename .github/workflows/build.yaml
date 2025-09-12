@@ -34,10 +34,20 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build and push Docker image
+      - name: Build and push Docker image (server)
         uses: docker/build-push-action@v6
         with:
           context: "{{defaultContext}}:log_output"
+          target: server
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          annotations: ${{ steps.meta.outputs.annotations }}
+
+      - name: Build and push Docker image (file)
+        uses: docker/build-push-action@v6
+        with:
+          context: "{{defaultContext}}:log_output"
+          target: file
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           annotations: ${{ steps.meta.outputs.annotations }}

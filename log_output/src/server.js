@@ -1,27 +1,23 @@
+import fs from "node:fs"
 import express from "express"
 
 const app = express();
 
 app.get("/", (req, res) => {
-    return res.send({ "Current string": CURRENT_STR });
+  return res.send({ "Current string": CURRENT_STR });
 })
 
+const getCurrentDateHash = () => {
+  fs.readFile("/usr/local/datehash.txt", "utf8", (err, data) => {
+      if (err) {
+          console.error("ERROR:", err);
+          return "-";
+      }
+      return data;
+  })
+}
+
 const PORT = process.env.PORT || 3000;
-const DATE = new Date();
-let CURRENT_STR = "";
-
-const generateHash = () => {
-    return crypto.randomUUID();
-}
-
-const generateString = (date = DATE, hash = generateHash()) => {
-    const date_hash_str = date.toISOString() + ": " + hash;
-    console.log(date_hash_str);
-    CURRENT_STR = date_hash_str;
-}
-
-setInterval(generateString, 5000);
-
 
 const server = app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
