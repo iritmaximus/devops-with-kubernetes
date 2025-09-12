@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
 })
 
 const getCurrentDateHash = () => {
-  let dateHastStr = "";
+  let dateHashStr = "";
   fs.readFile("/usr/src/app/files/datehash.txt", "utf8", (err, data) => {
     if (err) {
       console.error("ERROR:", err);
