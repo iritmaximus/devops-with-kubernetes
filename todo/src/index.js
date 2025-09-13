@@ -2,11 +2,24 @@ import express from "express"
 
 const app = express();
 const PORT = process.env.PORT || 5005;
+const IMG_API_URL = process.env.IMG_API_URL || "https://picsum.photos/1200";
 
 
 app.get("/", (req, res) => {
-    return res.send("<p>Hello world!</p>");
+  const image = await getNewImage();
+  return res.send("<p>Hello world!</p>");
 });
+
+const getNewImage = async () => {
+  try {
+    const response = await fetch(IMG_API_URL);
+    if (!response.ok)
+      throw new Error(`Response status: ${response.status}`);
+    const result = await response.json();
+    console.log(result);
+    return result;
+  }
+}
 
 const server = app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
