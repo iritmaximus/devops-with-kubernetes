@@ -1,3 +1,4 @@
+import fs from "node:fs/promises"
 import express from "express"
 
 const app = express();
@@ -11,12 +12,25 @@ app.get("/", async (req, res) => {
 });
 
 const getNewImage = async () => {
+  try {
+    const savedFile = await fs.readFile("/usr/src/app/files/randImg.jpg");
+    if (savedFile.length > 0) {
+      return savedFile;
+    }
+  } catch (err) {
+    console.error("ERROR": err);
+  }
+
   const response = await fetch(IMG_API_URL);
   if (!response.ok)
     throw new Error(`Response status: ${response.status}`);
-  const result = await response.json();
-  console.log(result);
+  const result = await response.blob();
+  await saveImageToFile(result);
   return result;
+}
+
+const saveImageToFile = async (data) => {
+  await fs.writeFile("/usr/src/app/files/randImg.jpg", data);
 }
 
 const server = app.listen(PORT, () => {
