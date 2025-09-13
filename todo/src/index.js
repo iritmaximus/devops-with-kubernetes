@@ -41,7 +41,7 @@ const saveImageToFile = async (data) => {
 app.get("/", async (req, res) => {
   const url = "http://" + req.get("host");
   console.log(url);
-  return res.send(`<p>Hello world!</p><img src="${url}/randImg.jpg" alt="Nice random image :)">`);
+  return res.send(`<h1>Project app :)!</h1><img src="${url}/randImg.jpg" width=500 height=500 alt="Nice random image :)">`);
 });
 
 app.get("/randImg.jpg", async (req, res) => {
