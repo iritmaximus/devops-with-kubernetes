@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 5005;
 const IMG_API_URL = process.env.IMG_API_URL || "https://picsum.photos/1200";
 
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   const image = await getNewImage();
   return res.send("<p>Hello world!</p>");
 });
