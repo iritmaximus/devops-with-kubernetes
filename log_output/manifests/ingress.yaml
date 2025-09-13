@@ -1,12 +1,12 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: dwk-material-ingress
+  name: dwk-other-ingress
 spec:
   rules:
   - http:
       paths:
-      - path: /
+      - path: /logoutput
         pathType: Prefix
         backend:
           service:

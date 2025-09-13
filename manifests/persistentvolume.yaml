@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: ping-pong-pv
+  name: dwk-pv
 spec:
   capacity:
     storage: 1Mi # Could be e.q. 500Gi. Small amount is to preserve space when testing locally

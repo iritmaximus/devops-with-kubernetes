@@ -15,10 +15,10 @@ spec:
       volumes:
       - name: shared-image
         persistentVolumeClaim:
-          claimName: ping-pong-claim
+          claimName: dwk-claim
       containers:
       - name: ping-pong
-        image: iritmaximus/ping-pong@sha256:c6ca6be7b1fd066a691b284f2e512f626ea766bb79efba23fab15773ceda4152
+        image: iritmaximus/ping-pong@sha256:070422ba160eaf21f1458462cf4393691b13d3ef4448e096f6031cda759ba0be
         volumeMounts:
         - name: shared-image
           mountPath: /usr/src/app/files

@@ -15,10 +15,10 @@ spec:
       volumes:
       - name: shared-image
         persistentVolumeClaim:
-          claimName: ping-pong-claim
+          claimName: dwk-claim
       containers:
       - name: log-output-server
-        image: iritmaximus/log-output-server@sha256:272a790c1f3793535187159c26b8864e7bbfe0c5b69c3b6383c2ab47a3522d8d
+        image: iritmaximus/log-output-server@sha256:8d06b31845da80c053be32c86c3ebbae7be1818e453891bbc8f531eef1611e5e
         volumeMounts:
         - name: shared-image
           mountPath: /usr/src/app/files
@@ -26,7 +26,7 @@ spec:
         - name: PORT
           value: "3002"
       - name: log-output-file
-        image: iritmaximus/log-output-file@sha256:8718553424a9bf57329ab145441a98545960027807a50a92c677bee6e1e59bf1
+        image: iritmaximus/log-output-file@sha256:ab4f976c14dd70483d3e7bc1e013b513ad592f88867a5c98295328c81d139f38
         volumeMounts:
         - name: shared-image
           mountPath: /usr/src/app/files
