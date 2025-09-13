@@ -5,8 +5,9 @@ const app = express();
 
 app.get("/", async (req, res) => {
   const dateHashStr = await getCurrentDateHash();
-  console.log("Current string:", dateHashStr);
-  return res.send({ "Current string": dateHashStr });
+  const ppCounter = await getCurrentPPCounter();
+  console.log("Current string:", dateHashStr, "Current Ping Pong counter:", ppCounter);
+  return res.send({ "Current string": dateHashStr, "Ping Pongs": ppCounter });
 })
 
 const getCurrentDateHash = async () => {
@@ -15,6 +16,17 @@ const getCurrentDateHash = async () => {
   } catch (err) {
     console.error("ERROR:", err);
     return "-";
+  }
+}
+
+const getCurrentPPCounter = async () => {
+  try {
+    const data = await fs.readFile("/usr/src/app/files/ppcounter.txt", { encoding: "utf8" });
+    console.log("PPCounter:", data);
+    return parseInt(data);
+  } catch (err) {
+    console.error("ERROR:", err);
+    return -1
   }
 }
 
