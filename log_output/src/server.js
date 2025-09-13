@@ -3,7 +3,7 @@ import express from "express"
 
 const app = express();
 
-app.get("/", async (req, res) => {
+app.get("/logoutput", async (req, res) => {
   const dateHashStr = await getCurrentDateHash();
   const ppCounter = await getCurrentPPCounter();
   console.log("Current string:", dateHashStr, "Current Ping Pong counter:", ppCounter);
