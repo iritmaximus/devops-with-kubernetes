@@ -9,6 +9,7 @@ on:
     paths-ignore:
       - '.gitignore'
       - 'README.md'
+      - 'manifests'
       - 'ping-pong/manifests/**'
       - 'log_output/manifests/**'
       - 'todo/manifests/**'
