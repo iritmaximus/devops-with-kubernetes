@@ -15,6 +15,9 @@ const updatePPCounter = async () => {
     console.error("ERROR:", err);
   }
 
+  if (data == null)
+    data = 0
+
   await fs.writeFile("/usr/src/app/files/ppcounter.txt", (++data).toString(), err => {
     if (err) console.error("ERROR:", err);
   });
