@@ -11,14 +11,12 @@ app.get("/", async (req, res) => {
 });
 
 const getNewImage = async () => {
-  try {
-    const response = await fetch(IMG_API_URL);
-    if (!response.ok)
-      throw new Error(`Response status: ${response.status}`);
-    const result = await response.json();
-    console.log(result);
-    return result;
-  }
+  const response = await fetch(IMG_API_URL);
+  if (!response.ok)
+    throw new Error(`Response status: ${response.status}`);
+  const result = await response.json();
+  console.log(result);
+  return result;
 }
 
 const server = app.listen(PORT, () => {
