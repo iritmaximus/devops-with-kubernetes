@@ -6,32 +6,49 @@ const PORT = process.env.PORT || 5005;
 const IMG_API_URL = process.env.IMG_API_URL || "https://picsum.photos/1200";
 
 
-app.get("/", async (req, res) => {
-  await getNewImage();
-  return res.send("<p>Hello world!</p><img src='/usr/src/app/files/randImg.jpg'>");
-});
+
+const updateImage = async () => {
+  console.log("Updating image.")
+  const response = await fetch(IMG_API_URL);
+  if (!response.ok)
+    throw new Error(`Response status: ${response.status}`);
+  const result = await response.arrayBuffer();
+  const buffer = Buffer.from(result);
+  await saveImageToFile(buffer);
+}
+
+setInterval(updateImage, 600000);
 
 const getNewImage = async () => {
   try {
     const savedFile = await fs.readFile("/usr/src/app/files/randImg.jpg");
     if (savedFile.length > 0) {
+    console.log("Existing file found!");
       return;
     }
   } catch (err) {
-    console.error("ERROR": err);
+    console.error("ERROR:", err);
   }
-
-  const response = await fetch(IMG_API_URL);
-  if (!response.ok)
-    throw new Error(`Response status: ${response.status}`);
-  const result = await response.blob();
-  await saveImageToFile(result);
-  return result;
+  console.log("Didn't find existing image, fetching a new one.");
+  updateImage();
 }
 
 const saveImageToFile = async (data) => {
   await fs.writeFile("/usr/src/app/files/randImg.jpg", data);
+  console.log("Saved data to file.");
 }
+
+app.get("/", async (req, res) => {
+  const url = "http://" + req.get("host");
+  console.log(url);
+  return res.send(`<p>Hello world!</p><img src="${url}/randImg.jpg" alt="Nice random image :)">`);
+});
+
+app.get("/randImg.jpg", async (req, res) => {
+  console.log("Image fetched :)");
+  await getNewImage();
+  res.sendFile("/usr/src/app/files/randImg.jpg");
+})
 
 const server = app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
@@ -44,6 +61,7 @@ process.on('SIGTERM', () => {
   server.close(() => {
     console.log('Closed out remaining connections');
   });
+  process.exit(1);
 });
 
 process.on('SIGINT', () => {
@@ -51,4 +69,5 @@ process.on('SIGINT', () => {
   server.close(() => {
     console.log('Closed out remaining connections');
   });
+  process.exit(1);
 });
