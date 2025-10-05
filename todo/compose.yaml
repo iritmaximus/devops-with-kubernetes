@@ -1,0 +1,29 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+      - /usr/src/app/files
+    ports:
+      - 3001:3001
+    environment:
+      - PORT=3001
+    container_name: backend
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    command:
+      npm run dev
+    ports:
+      - 3000:3000
+    environment:
+      - VITE_BACKEND_URL=http://localhost:3001
+    container_name: frontend

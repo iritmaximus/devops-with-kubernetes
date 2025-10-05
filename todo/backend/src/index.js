@@ -2,7 +2,7 @@ import fs from "node:fs/promises"
 import express from "express"
 
 const app = express();
-const PORT = process.env.PORT || 5005;
+const PORT = process.env.PORT || 3001;
 const IMG_API_URL = process.env.IMG_API_URL || "https://picsum.photos/1200";
 
 
